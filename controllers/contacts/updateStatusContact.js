@@ -1,5 +1,5 @@
 const { Contacts } = require("../../db/contactModel");
-const  favoriteSchema  = require("../../schemas/favoriteSchema");
+const  {favoriteSchema}  = require("../../schemas");
 
 const updateStatusContact = async (req, res) => {
   const { error } = favoriteSchema.validate(req.body);

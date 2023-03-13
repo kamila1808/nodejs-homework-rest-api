@@ -1,9 +1,9 @@
 const { Contacts } = require("../../db/contactModel");
 
-const schema = require("../../schemas/contactsSchema");
+const {contactsSchema} = require("../../schemas");
 
 const postNewContact = async (req, res) => {
-  const { error } = schema.validate(req.body);
+  const { error } = contactsSchema.validate(req.body);
   if (error) {
     return res.status(400).json({
       message: "missing required name field",
