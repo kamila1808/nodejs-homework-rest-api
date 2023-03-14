@@ -3,7 +3,7 @@ const gravatar = require("gravatar");
 
 const { Users } = require("../../db/userModel");
 
-const {usersSchema} = require("../../schemas");
+const { usersSchema } = require("../../schemas");
 
 const signup = async (req, res) => {
   const body = req.body;
@@ -19,12 +19,17 @@ const signup = async (req, res) => {
   }
   const hashPassword = await bcrypt.hash(password, 10);
   const avatarURL = gravatar.url(email);
-  const newUser = await Users.create({ email, password: hashPassword, avatarURL });
+  const newUser = await Users.create({
+    email,
+    password: hashPassword,
+    avatarURL,
+  });
 
   res.status(201).json({
     user: {
       email: newUser.email,
       subscription: newUser.subscription,
+      avatarURL: newUser.avatar,
     },
   });
 };
