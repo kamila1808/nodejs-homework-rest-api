@@ -20,4 +20,8 @@ router.get(
 
 router.patch("/avatars", authMiddleware, upload.single("avatar"), controllerWrapper(authController.updateAvatar));
 
+router.get("/verify/:verificationToken", controllerWrapper(authController.authVerification))
+
+router.post("/verify", controllerWrapper(authController.emailVerification))
+
 module.exports = router;

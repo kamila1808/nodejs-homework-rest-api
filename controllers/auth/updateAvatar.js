@@ -4,28 +4,6 @@ const path = require("path");
 
 const { Users } = require("../../db/userModel");
 
-// const updateAvatar = async (req, res) => {
-//     const { _id } = req.user;
-  
-//     const avatarDir = path.join(__dirname, "../../public/avatars");
-  
-//     const { path: tempUpload, originalname } = req.file;
-//     const filename = `${_id}_${originalname}`;
-  
-//     const resultUpload = path.join(avatarDir, originalname);
-  
-//     await Jimp.read(tempUpload)
-//       .then((img) => img.resize(250, 250).write(resultUpload))
-//       .catch((error) => error);
-  
-//     await fs.unlink(tempUpload);
-  
-//     const avatarURL = path.join("avatar", filename);
-//     await Users.findByIdAndUpdate(_id, { avatarURL });
-//     res.json({
-//       avatarURL,
-//     });
-//   };
 
 const avatarsDir = path.join(__dirname, "../../", "public", "avatars");
 
